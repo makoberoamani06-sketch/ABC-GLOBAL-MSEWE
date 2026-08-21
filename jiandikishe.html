@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jiandikishe - ASSEMBLY BELIEVERS CHURCH</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <header>
+    <div class="navbar">
+        <div class="logo">
+            <span class="site-title">ASSEMBLY BELIEVERS CHURCH(ABC GLOBAL)</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="huduma.html">Huduma</a></li>
+                <li><a href="jiandikishe.html">Jiandikishe</a></li>
+                <li><a href="matangazo.html">Matangazo</a></li>
+                <li><a href="kuhusu.html">Kuhusu</a></li>
+                <li><a href="wasilliana.html">Wasiliana</a></li>
+            </ul>
+        </nav>
+    </div>
+   </header>
+
+   <main>
+       <section id="register" class="register-section">
+           <h2>Form ya Uanachama/Wageni</h2>
+           <p>Tafadhali jaza form hii ili kuungana nasi rasmi</p>
+           <form id="register-form" class="church-form" novalidate>
+               <div class="form-group">
+                   <label for="fullname">Majina kamili:</label>
+                   <input type="text" id="fullname" name="fullname" placeholder="Ingiza majina yako" required>
+                   <p class="error-message" id="error-fullname"></p>
+               </div>
+               <div class="form-group">
+                   <label for="email">Barua pepe:</label>
+                   <input type="email" id="email" name="email" placeholder="ingiza email yako">
+                   <p class="error-message" id="error-email"></p>
+               </div>
+               <div class="form-group">
+                   <label for="phone">Namba ya simu:</label>
+                   <input type="tel" id="phone" name="phone" placeholder="Mfano:0766731959" required>
+                   <p class="error-message" id="error-phone"></p>
+               </div>
+               <div class="form-group">
+                   <label for="ministry">Huduma:</label>
+                   <input type="text" id="ministry" name="ministry" placeholder="shemasi" required>
+                   <p class="error-message" id="error-ministry"></p>
+               </div>
+               <div class="form-group">
+                   <label for="status">Wewe ni:</label>
+                   <select id="status" name="status">
+                       <option value="mgeni">Mgeni (Unatembelea)</option>
+                       <option value="mwenyeji">Mwenyeji (Muumini wa kudumu)</option>
+                   </select>
+               </div>
+               <button type="submit" class="btn-submit">Tuma taarifa</button>
+           </form>
+           <div id="submit-result"></div>
+       </section>
+   </main>
+
+   <footer>
+       <p>&copy; 2026 abcglobal@gmail.com. Haki zote zimehifadhiwa.</p>
+   </footer>
+
+    <script src="javascript.js"></script>
+    
+</body>
+</html>
+
+</body>
+</html>
