@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>React Multi Timezone Clock</title>
+    <style>
+      body{font-family:Inter,system-ui,Arial;background:#071026;color:#e6eef6;margin:0;padding:20px}
+      .wrap{max-width:960px;margin:0 auto}
+      .card{background:linear-gradient(180deg,#07182a,#081428);padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 6px 30px rgba(2,6,23,0.6)}
+      .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-top:12px}
+      .clock{padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent)}
+      .tz-name{font-weight:700}
+      .tz-offset{color:#9fb1c8;font-size:0.85rem}
+      .time{font-size:1.4rem;font-weight:800;margin-top:6px}
+      .date{color:#9fb1c8;font-size:0.9rem;margin-top:6px}
+      .controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+      input,select,button{padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+      .btn{background:#06b6d4;color:#012;border:none;padding:8px 10px;border-radius:8px;cursor:pointer}
+      .remove{background:transparent;border:1px solid rgba(255,255,255,0.04);color:#ff9b9b;padding:6px 8px;border-radius:8px;cursor:pointer}
+      header{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px}
+      footer{margin-top:14px;color:#9fb1c8}
+      @media (max-width:520px){.time{font-size:1.1rem}}
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <h1 style="margin:0">React Multi Timezone Clock</h1>
+        <div class="controls card" style="padding:8px">
+          <label style="display:flex;align-items:center;gap:8px">
+            <input id="formatToggle" type="checkbox" />
+            <span style="font-size:0.95rem;color:#9fb1c8">24-hour</span>
+          </label>
+        </div>
+      </header>
+
+      <div id="root"></div>
+
+      <footer class="card">
+        <div style="font-size:0.95rem;color:#9fb1c8">Usage: add IANA time zone names (e.g. "Europe/Paris"). Selections persist in localStorage.</div>
+      </footer>
+    </div>
+
+    <!-- React and Babel (no build step) -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      const { useState, useEffect, useRef } = React;
+
+      const DEFAULT_ZONES = [
+        { id: 'local', label: 'Local Time', tz: Intl.DateTimeFormat().resolvedOptions().timeZone || 'local' },
+        { id: 'utc', label: 'UTC', tz: 'UTC' },
+        { id: 'nairobi', label: 'Nairobi', tz: 'Africa/Nairobi' }
+      ];
+
+      function useInterval(callback, delay) {
+        const savedRef = useRef();
+        useEffect(() => { savedRef.current = callback; }, [callback]);
+        useEffect(() => {
+          if (delay == null) return;
+          const id = setInterval(() => savedRef.current(), delay);
+          return () => clearInterval(id);
+        }, [delay]);
+      }
+
+      function formatDateForTZ(date, tz, opts){
+        try{ return new Intl.DateTimeFormat(undefined, {...opts, timeZone: tz}).format(date); }
+        catch(e){ return null; }
+      }
+
+      function ClockCard({zone, use24, onRemove}){
+        const [now, setNow] = useState(new Date());
+        useInterval(() => setNow(new Date()), 1000);
+        const timeOpts = {hour:'2-digit',minute:'2-digit',second:'2-digit',hour12: !use24};
+        const dateOpts = {weekday:'short',year:'numeric',month:'short',day:'numeric'};
+        const time = formatDateForTZ(now, zone.tz, timeOpts);
+        const date = formatDateForTZ(now, zone.tz, dateOpts);
+        const tzName = formatDateForTZ(now, zone.tz, {timeZoneName:'short'}) || zone.tz;
+        return (
+          <div className="clock card">
+            <div style={{display:'flex',justifyContent:'space-between'}}>
+              <div>
+                <div className="tz-name">{zone.label}</div>
+                <div className="tz-offset">{tzName}</div>
+              </div>
+              <div>
+                <button className="remove" onClick={() => onRemove(zone.id)}>Remove</button>
+              </div>
+            </div>
+            <div className="time">{time || 'Invalid timezone'}</div>
+            <div className="date">{date || ''}</div>
+          </div>
+        );
+      }
+
+      function App(){
+        const [zones, setZones] = useState(() => {
+          try{
+            const raw = localStorage.getItem('react_clock_zones');
+            if(raw) return JSON.parse(raw);
+          }catch(e){}
+          return DEFAULT_ZONES;
+        });
+        const [input, setInput] = useState('');
+        const [use24, setUse24] = useState(() => localStorage.getItem('react_clock_24') === '1');
+
+        useEffect(() => { localStorage.setItem('react_clock_zones', JSON.stringify(zones)); }, [zones]);
+        useEffect(() => { localStorage.setItem('react_clock_24', use24 ? '1' : '0'); document.getElementById('formatToggle').checked = use24; }, [use24]);
+
+        useEffect(() => {
+          const el = document.getElementById('formatToggle');
+          const handler = () => setUse24(el.checked);
+          el.addEventListener('change', handler);
+          return () => el.removeEventListener('change', handler);
+        }, []);
+
+        const addZone = (tzStr) => {
+          const tz = tzStr.trim();
+          if(!tz) return;
+          try{
+            new Intl.DateTimeFormat(undefined, {timeZone: tz}).format(new Date());
+          }catch(e){ alert('Invalid IANA timezone'); return; }
+          const id = tz + '-' + Math.random().toString(36).slice(2,8);
+          setZones(prev => [{id,label:tz,tz}, ...prev]);
+          setInput('');
+        };
+
+        const removeZone = (id) => setZones(prev => prev.filter(z => z.id !== id));
+
+        return (
+          <div>
+            <div className="card">
+              <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',gap:12}}>
+                <div>
+                  <div style={{color:'#9fb1c8'}}>Add timezone (IANA name)</div>
+                  <div style={{display:'flex',gap:8,marginTop:8}}>
+                    <input placeholder="e.g. Europe/Paris" value={input} onChange={e=>setInput(e.target.value)} onKeyDown={e=>{ if(e.key==='Enter'){ addZone(input); }}} />
+                    <button className="btn" onClick={()=>addZone(input)}>Add</button>
+                  </div>
+                </div>
+                <div style={{minWidth:180}}>
+                  <div style={{color:'#9fb1c8'}}>Quick examples</div>
+                  <div style={{display:'flex',gap:8,marginTop:8}}>
+                    <button onClick={()=>addZone('America/New_York')} className="btn">New York</button>
+                    <button onClick={()=>addZone('Asia/Tokyo')} className="btn">Tokyo</button>
+                    <button onClick={()=>addZone('Europe/London')} className="btn">London</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid" style={{marginTop:12}}>
+              {zones.map(z => (
+                <ClockCard key={z.id} zone={z} use24={use24} onRemove={removeZone} />
+              ))}
+            </div>
+          </div>
+        );
+      }
+
+      ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+    </script>
+  </body>
+</html>
