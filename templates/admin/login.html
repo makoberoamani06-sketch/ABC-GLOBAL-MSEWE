@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Admin Login{% endblock %}
+{% block content %}
+<section class="simple-section admin-login">
+  <h2>Admin Login</h2>
+  <form method="post" class="login-form">
+    <label>Jina la mtumiaji<input type="text" name="username" required></label>
+    <label>Nenosiri<input type="password" name="password" required></label>
+    <div class="actions">
+      <button class="btn primary" type="submit">Ingia</button>
+      <a class="btn" href="{{ url_for('home') }}">Rudi</a>
+    </div>
+  </form>
+</section>
+{% endblock %}

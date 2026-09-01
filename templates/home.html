@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<section class="hero">
+  <h1>Karibu ABC GLOBAL MSEWE</h1>
+  <p>Misioni yetu ni kuleta jamii pamoja kwa imani, huduma na upendo.</p>
+  <div class="hero-actions">
+    <a class="btn primary" href="{{ url_for('kuhusu') }}">Soma Zaidi</a>
+    <a class="btn" href="{{ url_for('services') }}">Huduma Zetu</a>
+  </div>
+</section>
+
+<section class="cards-section">
+  <h2>Sehemu za Tovuti</h2>
+  <div class="cards">
+    <article class="card">
+      <h3>Huduma za Kiimani</h3>
+      <p>Huduma za ibada, tafakari na mafundisho ya Biblia.</p>
+      <a href="{{ url_for('services') }}" class="card-link">Fungua</a>
+    </article>
+
+    <article class="card">
+      <h3>Huduma za Jamii</h3>
+      <p>Miradi ya kusaidia jamii, elimu na afya.</p>
+      <a href="{{ url_for('services') }}" class="card-link">Fungua</a>
+    </article>
+
+    <article class="card">
+      <h3>Barua na Mawasiliano</h3>
+      <p>Wasiliana nasi kwa maswali, mahubiri au msaada.</p>
+      <a href="{{ url_for('contact') }}" class="card-link">Wasiliana</a>
+    </article>
+  </div>
+</section>
+{% endblock %}

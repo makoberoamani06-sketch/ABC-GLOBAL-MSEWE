@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Mawasiliano{% endblock %}
+{% block content %}
+<section class="simple-section">
+  <h2>Mawasiliano</h2>
+  <p>Tunapenda kusikia kutoka kwako. Tuma ujumbe kwenye barua pepe au tuma ujumbe hapa:</p>
+  <form class="contact-form" method="post" action="#">
+    <label>Jina<input type="text" name="name" required></label>
+    <label>Barua pepe<input type="email" name="email" required></label>
+    <label>Ujumbe<textarea name="message" rows="5" required></textarea></label>
+    <button class="btn primary" type="submit">Tuma</button>
+  </form>
+</section>
+{% endblock %}

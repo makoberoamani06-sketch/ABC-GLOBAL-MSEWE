@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Admin Dashboard{% endblock %}
+{% block content %}
+<section class="simple-section">
+  <h2>Admin Dashboard</h2>
+  <p>Hapa unaweza kuhariri sehemu za tovuti, kuangalia mawasiliano, na kusimamia vitu vingine.</p>
+  <div class="cards">
+    <article class="card">
+      <h3>Sehemu za Kurasa</h3>
+      <p>Hariri Home, Kuhusu, Huduma, Mawasiliano.</p>
+      <a class="card-link" href="#">Hariri</a>
+    </article>
+    <article class="card">
+      <h3>Mashauriano</h3>
+      <p>Angalia maombi ya kusaidia na maoni.</p>
+      <a class="card-link" href="#">Angalia</a>
+    </article>
+    <article class="card">
+      <h3>Makala</h3>
+      <p>Ongeza au fanya update ya matangazo/maq post.</p>
+      <a class="card-link" href="#">Ongeza</a>
+    </article>
+  </div>
+  <p><a class="btn" href="{{ url_for('admin_logout') }}">Toka (Logout)</a></p>
+</section>
+{% endblock %}
