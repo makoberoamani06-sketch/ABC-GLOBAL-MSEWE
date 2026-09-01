@@ -7,60 +7,220 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-   <header>
-    <div class="navbar">
-        <div class="logo">
-            <img src="" alt="ASSEMBLY BELIEVERS CHURCH Logo" class="logo-image" 
-            width="100" height="100">
-            <span class="site-title">ASSEMBLY BELIEVERS CHURCH(ABC GLOBAL)-UBUNGO MSEWE</span>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <img src="ABC GLOBAL.jpg" alt="ASSEMBLY BELIEVERS CHURCH Logo" class="logo-image" 
+                width="44" height="44">
+                <span class="site-title">ABC GLOBAL-UBUNGO MSEWE</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="huduma.html">Huduma</a></li>
+                    <li><a href="jiandikishe.html">Jiandikishe</a></li>
+                    <li><a href="matangazo.html">Matangazo</a></li>
+                    <li><a href="kuhusu.html">Kuhusu</a></li>
+                    <li><a href="wasilliana.html">Wasiliana</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="huduma.html">Huduma</a></li>
-                <li><a href="jiandikishe.html">Jiandikishe</a></li>
-                <li><a href="matangazo.html">Matangazo</a></li>
-                <li><a href="kuhusu.html">Kuhusu</a></li>
-                <li><a href="wasilliana.html">Wasiliana</a></li>
-            </ul>
-        </nav>
+    </header>
+
+    <main>
+        <section id="services" class="services-section">
+            <div class="section-heading">
+                <span class="eyebrow">Idara za Kanisa</span>
+                <h2>Huduma za Kanisa - Idara Kuu</h2>
+                <p>Tunatoa ibada, mafunzo, huduma kwa watu wote. Chagua idara yako na jiandikishe ili kuwa sehemu ya familia yetu ya kiroho.</p>
+            </div>
+
+            <div class="departments-grid">
+                <!-- Idara ya Wanaume -->
+                <div class="department-card">
+                    <div class="dept-header" style="background: linear-gradient(135deg, #1e3a5f, #2d5a8c);">
+                        <div class="dept-icon">👨‍👨‍👧‍👦</div>
+                        <h3>Idara ya Wanaume</h3>
+                    </div>
+                    <div class="dept-body">
+                        <p>Kujenga kundi la wanaume wenye imani, kujifunza Neno la Mungu, na kuwa viongozi wenye heshima katika familia na kanisa.</p>
+                        <button class="btn-register" onclick="openRegistrationForm('Idara ya Wanaume')">Jiandikishe</button>
+                    </div>
+                </div>
+
+                <!-- Idara ya Wanawake -->
+                <div class="department-card">
+                    <div class="dept-header" style="background: linear-gradient(135deg, #5f1e4f, #8c2d7f);">
+                        <div class="dept-icon">👩‍👩‍👧‍👦</div>
+                        <h3>Idara ya Wanawake</h3>
+                    </div>
+                    <div class="dept-body">
+                        <p>Kubwa na kubuni kundi la wanawake wajinga, wajifunze, na kuwa msaada kwa jamii na jamii ya kanisa.</p>
+                        <button class="btn-register" onclick="openRegistrationForm('Idara ya Wanawake')">Jiandikishe</button>
+                    </div>
+                </div>
+
+                <!-- Idara ya Media Team -->
+                <div class="department-card">
+                    <div class="dept-header" style="background: linear-gradient(135deg, #5f3a1e, #8c5a2d);">
+                        <div class="dept-icon">📱</div>
+                        <h3>Idara ya Media Team</h3>
+                    </div>
+                    <div class="dept-body">
+                        <p>Kueneza ujumbe wa kanisa kupitia video, picha, na mitandao ya kijamii. Tunataka kuwa na uwepo mkubwa mkondoni.</p>
+                        <button class="btn-register" onclick="openRegistrationForm('Idara ya Media Team')">Jiandikishe</button>
+                    </div>
+                </div>
+
+                <!-- Idara ya Maombi na Ibada -->
+                <div class="department-card">
+                    <div class="dept-header" style="background: linear-gradient(135deg, #3a5f1e, #5a8c2d);">
+                        <div class="dept-icon">🙏</div>
+                        <h3>Idara ya Maombi & Ibada</h3>
+                    </div>
+                    <div class="dept-body">
+                        <p>Kuongoza maombi yenye nguvu, utukufu wa kiroho, na ibada iliyofika moyoni ya Mungu kwa wote.</p>
+                        <button class="btn-register" onclick="openRegistrationForm('Idara ya Maombi & Ibada')">Jiandikishe</button>
+                    </div>
+                </div>
+
+                <!-- Idara ya Vijana -->
+                <div class="department-card">
+                    <div class="dept-header" style="background: linear-gradient(135deg, #5f3a2e, #8c5a46);">
+                        <div class="dept-icon">🎉</div>
+                        <h3>Idara ya Vijana</h3>
+                    </div>
+                    <div class="dept-body">
+                        <p>Kujengea vijana waendelee kuwa watakatifu, wajuze haraka, na wawe viongozi wa kesho.</p>
+                        <button class="btn-register" onclick="openRegistrationForm('Idara ya Vijana')">Jiandikishe</button>
+                    </div>
+                </div>
+
+                <!-- Idara ya Watoto (Sunday School) -->
+                <div class="department-card">
+                    <div class="dept-header" style="background: linear-gradient(135deg, #5f1e5f, #8c2d8c);">
+                        <div class="dept-icon">🎨</div>
+                        <h3>Idara ya Watoto (Sunday School)</h3>
+                    </div>
+                    <div class="dept-body">
+                        <p>Kufundisha watoto mafundisho yenye furaha na kuvutia kuhusu Yesu, imani, na upendo wa Mungu.</p>
+                        <button class="btn-register" onclick="openRegistrationForm('Idara ya Watoto (Sunday School)')">Jiandikishe</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Registration Modal -->
+    <div id="registrationModal" class="registration-modal hidden" aria-hidden="true">
+        <div class="modal-content registration-modal-content">
+            <button class="modal-close" onclick="closeRegistrationForm()">&times;</button>
+            <h3>Jiandikishe - <span id="deptName">Idara</span></h3>
+            
+            <form id="departmentRegistrationForm" class="registration-form">
+                <div class="form-group">
+                    <label for="fullName">Jina kamili *</label>
+                    <input type="text" id="fullName" name="fullName" placeholder="Andika jina lako kamili" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Barua pepe (Email) *</label>
+                    <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Namba ya simu *</label>
+                    <input type="tel" id="phone" name="phone" placeholder="0712 345 678" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="age">Umri</label>
+                    <input type="number" id="age" name="age" placeholder="Umri wako">
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Anuani (Mtaa/Vitongoji)</label>
+                    <input type="text" id="address" name="address" placeholder="Andika anuani yako">
+                </div>
+
+                <div class="form-group">
+                    <label for="experience">Je, umekuwa katika idara hii hapo letu?</label>
+                    <select id="experience" name="experience">
+                        <option value="">Chagua...</option>
+                        <option value="ni">Ndiyo, umekuwa</option>
+                        <option value="hapana">Hapana, ni mpya</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Ujumbe au maswali (ikhtiyari)</label>
+                    <textarea id="message" name="message" placeholder="Andika kile unachotaka kusema..." rows="3"></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit registration-submit">Tuma Ombi la Ujamii</button>
+            </form>
+
+            <div id="registrationSuccess" class="success-message hidden">
+                <p>✓ Asante sana kwa kujiandikisha! Tutakupigia simu hivi karibuni.</p>
+            </div>
+        </div>
     </div>
-   </header>
 
-   <main>
-       <section id="services" class="services-section">
-           <div class="section-heading">
-               <h2>Huduma za Kanisa</h2>
-               <p>Tunatoa ibada, mafunzo, huduma kwa watu wote na mkutano wa mtandaoni (Google Meet).</p>
-           </div>
-           <div class="card-grid">
-               <article class="card">
-                   <h3>Ibada ya Jumapili</h3>
-                   <p1>Saa 1:00-5:30 asubuhi. Ibada ya nguvu na mafundisho ya neno la Mungu.</p1>
-               </article>
-               <article class="card">
-                   <h3>Google Meet</h3>
-                   <P2>Ibada ya google meet kuanzia saa 1:00 hadi saa 2:30 usiku
-                    chini ya Bishop Jordani Yusuph Mwakatage
-                    .</P2>
-               </article>
-              
-               <article class="card">
-                   <h3>Huduma ya Vijana</h3>
-                   <p>Mafunzo, muziki, na malezi kwa vijana wa kanisa.</p>
-               </article>
-           </div>
-       </section>
-   </main>
-
-   <footer>
-       <p>&copy; 2026 abcglobalmsewe@gmail.com. Haki zote zimehifadhiwa.</p>
-   </footer>
+    <footer>
+        <p>&copy; 2026 abcglobalmsewe@gmail.com. Haki zote zimehifadhiwa.</p>
+    </footer>
 
     <script src="javascript.js"></script>
-   
-</body>
-</html>
+    <script>
+        function openRegistrationForm(deptName) {
+            document.getElementById('deptName').textContent = deptName;
+            document.getElementById('registrationModal').classList.remove('hidden');
+            document.getElementById('registrationModal').setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
 
+        function closeRegistrationForm() {
+            document.getElementById('registrationModal').classList.add('hidden');
+            document.getElementById('registrationModal').setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = 'auto';
+            document.getElementById('departmentRegistrationForm').reset();
+            document.getElementById('registrationSuccess').classList.add('hidden');
+        }
+
+        document.getElementById('departmentRegistrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                department: document.getElementById('deptName').textContent,
+                fullName: document.getElementById('fullName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                age: document.getElementById('age').value || 'Hajandikia',
+                address: document.getElementById('address').value || 'Hajandikia',
+                experience: document.getElementById('experience').value || 'Hajandikia',
+                message: document.getElementById('message').value || 'Hakuna'
+            };
+
+            // Hifadhi katika localStorage
+            const registrations = JSON.parse(localStorage.getItem('departmentRegistrations')) || [];
+            registrations.push({...formData, timestamp: new Date().toISOString()});
+            localStorage.setItem('departmentRegistrations', JSON.stringify(registrations));
+
+            // Onyesha ujumbe wa mafanikio
+            this.style.display = 'none';
+            document.getElementById('registrationSuccess').classList.remove('hidden');
+
+            setTimeout(() => {
+                closeRegistrationForm();
+            }, 2000);
+        });
+
+        // Funga modal kwa kubofya nje
+        document.getElementById('registrationModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeRegistrationForm();
+            }
+        });
+    </script>
 </body>
 </html>
