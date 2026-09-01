@@ -3,112 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Huduma - ASSEMBLY BELIEVERS CHURCH</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Huduma - ABC GLOBAL MSEWE</title>
+
+    <style>
+    :root{
+      --deep-red: #8B0000; /* nyekundu ilokolea */
+      --white: #ffffff;
+      --muted: #f7f7f7;
+      --card-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      --card-hover-shadow: 0 12px 28px rgba(139,0,0,0.18);
+      --accent: #ff3b3b;
+      --text: #222;
+      --radius: 12px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;background:var(--white);color:var(--text)}
+    .container{max-width:1100px;margin:0 auto;padding:20px}
+
+    /* Header */
+    header{background:var(--deep-red);color:var(--white)}
+    .navbar{display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;padding:14px}
+    .logo{display:flex;align-items:center;gap:12px}
+    .logo-image{border-radius:6px}
+    .site-title{font-weight:700;font-size:1.1rem}
+
+    nav ul{list-style:none;margin:0;padding:0;display:flex;gap:8px}
+    nav a{color:var(--white);text-decoration:none;padding:8px 12px;border-radius:8px;border:2px solid transparent;display:inline-block;transition:background .15s, transform .12s}
+    nav a:hover{background:rgba(255,255,255,0.06);transform:translateY(-2px)}
+    nav a.active{background:var(--white);color:var(--deep-red);font-weight:600}
+
+    /* Main hero */
+    .hero{padding:36px 20px;text-align:center;border-bottom:1px solid #eee;background:var(--white)}
+    .hero h1{margin:0 0 8px;font-size:1.8rem}
+    .hero p{margin:0;color:#444}
+
+    /* Cards grid */
+    .cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-top:20px}
+    .department-card{background:var(--white);border-radius:var(--radius);box-shadow:var(--card-shadow);overflow:hidden;border:1px solid rgba(0,0,0,0.04);display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s}
+    .department-card:hover{transform:translateY(-8px) scale(1.01);box-shadow:var(--card-hover-shadow);border-color:rgba(139,0,0,0.08)}
+    .dept-header{padding:18px;color:var(--white);display:flex;align-items:center;gap:12px}
+    .dept-icon{font-size:28px}
+    .dept-body{padding:18px;color:#333;flex:1;display:flex;flex-direction:column}
+    .dept-body p{flex:1;color:#555}
+    .btn-register{align-self:flex-start;padding:10px 14px;border-radius:10px;border:2px solid var(--deep-red);background:var(--white);color:var(--deep-red);cursor:pointer;transition:transform .12s}
+    .btn-register:hover{transform:translateY(-3px);background:var(--deep-red);color:var(--white)}
+
+    /* Modal */
+    .registration-modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.45);z-index:60}
+    .registration-modal.hidden{display:none}
+    .registration-modal-content{background:var(--white);border-radius:12px;padding:20px;max-width:680px;width:94%;box-shadow:0 12px 40px rgba(0,0,0,0.25);position:relative}
+    .modal-close{position:absolute;right:12px;top:10px;border:none;background:transparent;font-size:22px;cursor:pointer}
+    .registration-form{display:flex;flex-direction:column;gap:10px}
+    .registration-form input,.registration-form textarea,.registration-form select{padding:10px;border-radius:8px;border:1px solid #ddd;width:100%}
+    .form-group label{font-size:0.95rem;color:#333}
+    .btn-submit{background:var(--deep-red);color:var(--white);border:none;padding:10px 14px;border-radius:10px;cursor:pointer}
+
+    .success-message{padding:14px;background:#e6f9ed;color:#0b6f3a;border-radius:8px;text-align:center}
+
+    footer{padding:18px 0;text-align:center;color:#666;border-top:1px solid #eee;margin-top:36px}
+    @media(max-width:780px){nav ul{flex-wrap:wrap}}
+    </style>
 </head>
 <body>
     <header>
-        <div class="navbar">
+        <div class="navbar container">
             <div class="logo">
-                <img src="ABC GLOBAL.jpg" alt="ASSEMBLY BELIEVERS CHURCH Logo" class="logo-image" 
-                width="44" height="44">
-                <span class="site-title">ABC GLOBAL-UBUNGO MSEWE</span>
+                <img src="ABC GLOBAL.jpg" alt="ABC GLOBAL MSEWE" class="logo-image" width="44" height="44">
+                <span class="site-title">ABC GLOBAL MSEWE</span>
             </div>
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="huduma.html">Huduma</a></li>
+                    <li><a href="huduma.html" class="active">Huduma</a></li>
                     <li><a href="jiandikishe.html">Jiandikishe</a></li>
                     <li><a href="matangazo.html">Matangazo</a></li>
                     <li><a href="kuhusu.html">Kuhusu</a></li>
                     <li><a href="wasilliana.html">Wasiliana</a></li>
+                    <li><a href="admin.html">Admin</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <main>
-        <section id="services" class="services-section">
-            <div class="section-heading">
-                <span class="eyebrow">Idara za Kanisa</span>
-                <h2>Huduma za Kanisa - Idara Kuu</h2>
-                <p>Tunatoa ibada, mafunzo, huduma kwa watu wote. Chagua idara yako na jiandikishe ili kuwa sehemu ya familia yetu ya kiroho.</p>
-            </div>
+    <main class="container">
+        <section class="hero">
+            <h1>Huduma za Kanisa</h1>
+            <p>Chagua idara unayotaka kujiunga nayo — kila idara ina ukurasa wake, taarifa na fomu ya kujisajili.</p>
+        </section>
 
-            <div class="departments-grid">
-                <!-- Idara ya Wanaume -->
-                <div class="department-card">
-                    <div class="dept-header" style="background: linear-gradient(135deg, #1e3a5f, #2d5a8c);">
+        <section aria-labelledby="services-heading" class="services-section">
+            <div id="services-grid" class="cards-grid">
+
+                <article class="department-card">
+                    <div class="dept-header" style="background: linear-gradient(135deg,#5f0000,#8b0000);">
                         <div class="dept-icon">👨‍👨‍👧‍👦</div>
                         <h3>Idara ya Wanaume</h3>
                     </div>
                     <div class="dept-body">
-                        <p>Kujenga kundi la wanaume wenye imani, kujifunza Neno la Mungu, na kuwa viongozi wenye heshima katika familia na kanisa.</p>
+                        <p>Kujenga kundi la wanaume wenye imani, kujifunza Neno la Mungu, na kuwa viongozi wa maana katika jamii.</p>
                         <button class="btn-register" onclick="openRegistrationForm('Idara ya Wanaume')">Jiandikishe</button>
                     </div>
-                </div>
+                </article>
 
-                <!-- Idara ya Wanawake -->
-                <div class="department-card">
-                    <div class="dept-header" style="background: linear-gradient(135deg, #5f1e4f, #8c2d7f);">
+                <article class="department-card">
+                    <div class="dept-header" style="background: linear-gradient(135deg,#7a1a3a,#b23a5a);">
                         <div class="dept-icon">👩‍👩‍👧‍👦</div>
                         <h3>Idara ya Wanawake</h3>
                     </div>
                     <div class="dept-body">
-                        <p>Kubwa na kubuni kundi la wanawake wajinga, wajifunze, na kuwa msaada kwa jamii na jamii ya kanisa.</p>
+                        <p>Kikundi cha wanawake kwa mafunzo, ushauri na huduma kwa jamii. Karibu ujifunze pamoja nasi.</p>
                         <button class="btn-register" onclick="openRegistrationForm('Idara ya Wanawake')">Jiandikishe</button>
                     </div>
-                </div>
+                </article>
 
-                <!-- Idara ya Media Team -->
-                <div class="department-card">
-                    <div class="dept-header" style="background: linear-gradient(135deg, #5f3a1e, #8c5a2d);">
+                <article class="department-card">
+                    <div class="dept-header" style="background: linear-gradient(135deg,#533a00,#8c5a00);">
                         <div class="dept-icon">📱</div>
-                        <h3>Idara ya Media Team</h3>
+                        <h3>Idara ya Media</h3>
                     </div>
                     <div class="dept-body">
-                        <p>Kueneza ujumbe wa kanisa kupitia video, picha, na mitandao ya kijamii. Tunataka kuwa na uwepo mkubwa mkondoni.</p>
-                        <button class="btn-register" onclick="openRegistrationForm('Idara ya Media Team')">Jiandikishe</button>
+                        <p>Kueneza ujumbe wa kanisa kupitia video, picha, na mitandao ya kijamii. Tunahitaji watu wenye talenti.</p>
+                        <button class="btn-register" onclick="openRegistrationForm('Idara ya Media')">Jiandikishe</button>
                     </div>
-                </div>
+                </article>
 
-                <!-- Idara ya Maombi na Ibada -->
-                <div class="department-card">
-                    <div class="dept-header" style="background: linear-gradient(135deg, #3a5f1e, #5a8c2d);">
+                <article class="department-card">
+                    <div class="dept-header" style="background: linear-gradient(135deg,#1f5f1f,#3a8c3a);">
                         <div class="dept-icon">🙏</div>
-                        <h3>Idara ya Maombi & Ibada</h3>
+                        <h3>Maombi & Ibada</h3>
                     </div>
                     <div class="dept-body">
-                        <p>Kuongoza maombi yenye nguvu, utukufu wa kiroho, na ibada iliyofika moyoni ya Mungu kwa wote.</p>
-                        <button class="btn-register" onclick="openRegistrationForm('Idara ya Maombi & Ibada')">Jiandikishe</button>
+                        <p>Kuongoza ibada za kanisa, vikundi vya maombi na huduma za kiroho kwa familia na jamii.</p>
+                        <button class="btn-register" onclick="openRegistrationForm('Maombi & Ibada')">Jiandikishe</button>
                     </div>
-                </div>
+                </article>
 
-                <!-- Idara ya Waimbaji (Prays and Worship) -->
-                <div class="department-card">
-                    <div class="dept-header" style="background: linear-gradient(135deg, #5f3a2e, #8c5a46);">
+                <article class="department-card">
+                    <div class="dept-header" style="background: linear-gradient(135deg,#6a3a1f,#9c5a2d);">
                         <div class="dept-icon">🎵</div>
-                        <h3>Idara wa Waimbaji (Prays and Worship)</h3>
+                        <h3>Waimbaji & Muziki</h3>
                     </div>
                     <div class="dept-body">
-                        <p>Kuimba himaya, kumwabudu Mungu kwa nguvu, na kujenga jukumu la utukufu wa kiroho kupitia muziki.</p>
-                        <button class="btn-register" onclick="openRegistrationForm('Idara wa Waimbaji (Prays and Worship)')">Jiandikishe</button>
+                        <p>Kuunda timu ya waimbaji, muziki wa ibada na kuendeleza utamaduni wa utukufu kupitia nyimbo.</p>
+                        <button class="btn-register" onclick="openRegistrationForm('Waimbaji & Muziki')">Jiandikishe</button>
                     </div>
-                </div>
+                </article>
 
-                <!-- Idara ya Watoto (Sunday School) -->
-                <div class="department-card">
-                    <div class="dept-header" style="background: linear-gradient(135deg, #5f1e5f, #8c2d8c);">
+                <article class="department-card">
+                    <div class="dept-header" style="background: linear-gradient(135deg,#4b1f5f,#7a2d8c);">
                         <div class="dept-icon">🎨</div>
                         <h3>Idara ya Watoto (Sunday School)</h3>
                     </div>
                     <div class="dept-body">
-                        <p>Kufundisha watoto mafundisho yenye furaha na kuvutia kuhusu Yesu, imani, na upendo wa Mungu.</p>
-                        <button class="btn-register" onclick="openRegistrationForm('Idara ya Watoto (Sunday School)')">Jiandikishe</button>
+                        <p>Funzo la watoto kwa njia ya michezo, hadithi na nyimbo ili kufundisha kuhusu imani na upendo wa Mungu.</p>
+                        <button class="btn-register" onclick="openRegistrationForm('Sunday School')">Jiandikishe</button>
                     </div>
-                </div>
+                </article>
+
             </div>
         </section>
+
     </main>
 
     <!-- Registration Modal -->
@@ -147,7 +201,7 @@
                     <label for="experience">Je, umekuwa katika idara hii hapo letu?</label>
                     <select id="experience" name="experience">
                         <option value="">Chagua...</option>
-                        <option value="ni">Ndiyo, umekuwa</option>
+                        <option value="ndio">Ndiyo, nimeshiriki</option>
                         <option value="hapana">Hapana, ni mpya</option>
                     </select>
                 </div>
@@ -167,10 +221,11 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 abcglobalmsewe@gmail.com. Haki zote zimehifadhiwa.</p>
+        <div class="container">
+            <p>&copy; 2026 abcglobalmsewe@gmail.com. Haki zote zimehifadhiwa.</p>
+        </div>
     </footer>
 
-    <script src="javascript.js"></script>
     <script>
         function openRegistrationForm(deptName) {
             document.getElementById('deptName').textContent = deptName;
@@ -183,42 +238,44 @@
             document.getElementById('registrationModal').classList.add('hidden');
             document.getElementById('registrationModal').setAttribute('aria-hidden', 'true');
             document.body.style.overflow = 'auto';
-            document.getElementById('departmentRegistrationForm').reset();
-            document.getElementById('registrationSuccess').classList.add('hidden');
+            var form = document.getElementById('departmentRegistrationForm');
+            if(form) form.reset();
+            var success = document.getElementById('registrationSuccess');
+            if(success) success.classList.add('hidden');
+            if(form) form.style.display = '';
         }
 
-        document.getElementById('departmentRegistrationForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = {
-                department: document.getElementById('deptName').textContent,
-                fullName: document.getElementById('fullName').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value,
-                age: document.getElementById('age').value || 'Hajandikia',
-                address: document.getElementById('address').value || 'Hajandikia',
-                experience: document.getElementById('experience').value || 'Hajandikia',
-                message: document.getElementById('message').value || 'Hakuna'
-            };
+        document.addEventListener('DOMContentLoaded', function(){
+            var form = document.getElementById('departmentRegistrationForm');
+            if(!form) return;
+            form.addEventListener('submit', function(e){
+                e.preventDefault();
+                const formData = {
+                    department: document.getElementById('deptName').textContent,
+                    fullName: document.getElementById('fullName').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    age: document.getElementById('age').value || 'Hajandikia',
+                    address: document.getElementById('address').value || 'Hajandikia',
+                    experience: document.getElementById('experience').value || 'Hajandikia',
+                    message: document.getElementById('message').value || 'Hakuna'
+                };
 
-            // Hifadhi katika localStorage
-            const registrations = JSON.parse(localStorage.getItem('departmentRegistrations')) || [];
-            registrations.push({...formData, timestamp: new Date().toISOString()});
-            localStorage.setItem('departmentRegistrations', JSON.stringify(registrations));
+                const registrations = JSON.parse(localStorage.getItem('departmentRegistrations')) || [];
+                registrations.push({...formData, timestamp: new Date().toISOString()});
+                localStorage.setItem('departmentRegistrations', JSON.stringify(registrations));
 
-            // Onyesha ujumbe wa mafanikio
-            this.style.display = 'none';
-            document.getElementById('registrationSuccess').classList.remove('hidden');
+                // show success
+                form.style.display = 'none';
+                document.getElementById('registrationSuccess').classList.remove('hidden');
 
-            setTimeout(() => {
-                closeRegistrationForm();
-            }, 2000);
-        });
+                setTimeout(function(){ closeRegistrationForm(); }, 2000);
+            });
 
-        // Funga modal kwa kubofya nje
-        document.getElementById('registrationModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeRegistrationForm();
+            // click outside to close
+            var modal = document.getElementById('registrationModal');
+            if(modal){
+                modal.addEventListener('click', function(e){ if(e.target === modal) closeRegistrationForm(); });
             }
         });
     </script>
