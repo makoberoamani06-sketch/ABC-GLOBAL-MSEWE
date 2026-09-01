@@ -3,18 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Kuhusu - ABC GLOBAL MSEWE</title>
+  <title>Matangazo - ABC GLOBAL MSEWE</title>
   <style>
-    :root{--deep-red:#8B0000;--white:#fff;--radius:12px}
+    :root{--deep-red:#8B0000;--white:#fff;--radius:12px;--card-shadow:0 6px 18px rgba(0,0,0,0.06)}
     *{box-sizing:border-box}
     body{margin:0;font-family:Inter,system-ui,Roboto,Arial;background:var(--white);color:#222}
-    .container{max-width:1000px;margin:0 auto;padding:20px}
+    .container{max-width:1100px;margin:0 auto;padding:20px}
     header{background:var(--deep-red);color:#fff}
     .navbar{display:flex;align-items:center;justify-content:space-between;padding:14px}
     nav ul{display:flex;gap:8px;list-style:none;margin:0;padding:0}
     nav a{color:#fff;text-decoration:none;padding:8px 12px;border-radius:8px}
     nav a.active{background:#fff;color:var(--deep-red);font-weight:600}
-    .content{background:#fff;padding:20px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.06);margin-top:20px}
+    .announcements{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:20px}
+    .announce{background:#fff;padding:16px;border-radius:var(--radius);box-shadow:var(--card-shadow);border:1px solid rgba(0,0,0,0.03)}
+    .announce h4{margin:0 0 8px}
     footer{padding:18px 0;text-align:center;color:#666;border-top:1px solid #eee;margin-top:36px}
   </style>
 </head>
@@ -27,8 +29,8 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="huduma.html">Huduma</a></li>
           <li><a href="jiandikishe.html">Jiandikishe</a></li>
-          <li><a href="matangazo.html">Matangazo</a></li>
-          <li><a href="kuhusu.html" class="active">Kuhusu</a></li>
+          <li><a href="matangazo.html" class="active">Matangazo</a></li>
+          <li><a href="kuhusu.html">Kuhusu</a></li>
           <li><a href="wasilliana.html">Wasiliana</a></li>
           <li><a href="admin.html">Admin</a></li>
         </ul>
@@ -37,13 +39,12 @@
   </header>
 
   <main class="container">
-    <section class="content">
-      <h1>Kuhusu Sisi</h1>
-      <p>ABC GLOBAL MSEWE ni kanisa lililoanzishwa kwa lengo la kuleta watu pamoja kwa imani, huduma na upendo. Tunafanya programu za jamii, mafunzo ya imani na matukio ya kiroho.</p>
-      <h3>Maono Yetu</h3>
-      <p>Kueneza upendo wa Kristo na kumsaidia mwamini kuwa mchangiaji wa mafanikio ya jamii.</p>
-      <h3>Historia</h3>
-      <p>Tangu kuanzishwa, tumekuwa tukifanya huduma mbalimbali za kiroho na kijamii.</p>
+    <section class="hero"><h1>Matangazo</h1><p>Habari za hivi karibuni, matukio na matangazo ya kanisa.</p></section>
+
+    <section class="announcements">
+      <article class="announce"><h4>Huduma ya Jumapili</h4><p>Tarehe: Jumapili ijayo - Saa 10:00 asubuhi. Karibu wote.</p></article>
+      <article class="announce"><h4>Mkutano wa Maombi</h4><p>Jumatano, Saa 7:00 jioni. Tumeandaa sehemu maalumu ya maombi.</p></article>
+      <article class="announce"><h4>Programu ya Kujenga Jamii</h4><p>Miradi ya msaada itaanza mwezi ujao. Jiunge na timu ya waandishi.</p></article>
     </section>
   </main>
 

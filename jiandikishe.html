@@ -1,76 +1,77 @@
 <!DOCTYPE html>
 <html lang="sw">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jiandikishe - ASSEMBLY BELIEVERS CHURCH</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Jiandikishe - ABC GLOBAL MSEWE</title>
+  <style>
+    :root{ --deep-red:#8B0000; --white:#fff; --muted:#f7f7f7; --radius:12px }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,Roboto,Arial;background:var(--white);color:#222}
+    .container{max-width:900px;margin:0 auto;padding:20px}
+    header{background:var(--deep-red);color:var(--white)}
+    .navbar{display:flex;align-items:center;justify-content:space-between;padding:14px}
+    nav ul{display:flex;gap:8px;list-style:none;margin:0;padding:0}
+    nav a{color:var(--white);text-decoration:none;padding:8px 12px;border-radius:8px}
+    nav a.active{background:var(--white);color:var(--deep-red);font-weight:600}
+    .form-wrap{background:#fff;border-radius:12px;padding:20px;box-shadow:0 6px 18px rgba(0,0,0,0.06);margin-top:20px}
+    label{display:block;margin-bottom:8px;color:#333}
+    input,textarea,select{width:100%;padding:10px;border-radius:8px;border:1px solid #ddd;margin-bottom:12px}
+    .btn{background:var(--deep-red);color:#fff;padding:10px 14px;border:none;border-radius:10px;cursor:pointer}
+    footer{padding:18px 0;text-align:center;color:#666;border-top:1px solid #eee;margin-top:36px}
+  </style>
 </head>
 <body>
-   <header>
-    <div class="navbar">
-        <div class="logo">
-            <span class="site-title">ASSEMBLY BELIEVERS CHURCH(ABC GLOBAL)</span>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="huduma.html">Huduma</a></li>
-                <li><a href="jiandikishe.html">Jiandikishe</a></li>
-                <li><a href="matangazo.html">Matangazo</a></li>
-                <li><a href="kuhusu.html">Kuhusu</a></li>
-                <li><a href="wasilliana.html">Wasiliana</a></li>
-            </ul>
-        </nav>
+  <header>
+    <div class="navbar container">
+      <div class="logo"><span style="font-weight:700">ABC GLOBAL MSEWE</span></div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="huduma.html">Huduma</a></li>
+          <li><a href="jiandikishe.html" class="active">Jiandikishe</a></li>
+          <li><a href="matangazo.html">Matangazo</a></li>
+          <li><a href="kuhusu.html">Kuhusu</a></li>
+          <li><a href="wasilliana.html">Wasiliana</a></li>
+          <li><a href="admin.html">Admin</a></li>
+        </ul>
+      </nav>
     </div>
-   </header>
+  </header>
 
-   <main>
-       <section id="register" class="register-section">
-           <h2>Form ya Uanachama/Wageni</h2>
-           <p>Tafadhali jaza form hii ili kuungana nasi rasmi</p>
-           <form id="register-form" class="church-form" novalidate>
-               <div class="form-group">
-                   <label for="fullname">Majina kamili:</label>
-                   <input type="text" id="fullname" name="fullname" placeholder="Ingiza majina yako" required>
-                   <p class="error-message" id="error-fullname"></p>
-               </div>
-               <div class="form-group">
-                   <label for="email">Barua pepe:</label>
-                   <input type="email" id="email" name="email" placeholder="ingiza email yako">
-                   <p class="error-message" id="error-email"></p>
-               </div>
-               <div class="form-group">
-                   <label for="phone">Namba ya simu:</label>
-                   <input type="tel" id="phone" name="phone" placeholder="Mfano:0766731959" required>
-                   <p class="error-message" id="error-phone"></p>
-               </div>
-               <div class="form-group">
-                   <label for="ministry">Huduma:</label>
-                   <input type="text" id="ministry" name="ministry" placeholder="shemasi" required>
-                   <p class="error-message" id="error-ministry"></p>
-               </div>
-               <div class="form-group">
-                   <label for="status">Wewe ni:</label>
-                   <select id="status" name="status">
-                       <option value="mgeni">Mgeni (Unatembelea)</option>
-                       <option value="mwenyeji">Mwenyeji (Muumini wa kudumu)</option>
-                   </select>
-               </div>
-               <button type="submit" class="btn-submit">Tuma taarifa</button>
-           </form>
-           <div id="submit-result"></div>
-       </section>
-   </main>
+  <main class="container">
+    <section class="hero">
+      <h1>Jiandikishe</h1>
+      <p>Jaza fomu hapa chini ili kujiunga na idara au kupata taarifa zaidi.</p>
+    </section>
 
-   <footer>
-       <p>&copy; 2026 abcglobal@gmail.com. Haki zote zimehifadhiwa.</p>
-   </footer>
+    <div class="form-wrap">
+      <form id="signupForm">
+        <label>Jina kamili<input type="text" id="name" required></label>
+        <label>Barua pepe<input type="email" id="email" required></label>
+        <label>Namba ya simu<input type="tel" id="phone"></label>
+        <label>Je, unajiunga na huduma (aina)<select id="service"><option value="">Chagua...</option><option>Huduma</option><option>Idara</option><option>Mshirika</option></select></label>
+        <label>Ujumbe<textarea id="message" rows="4"></textarea></label>
+        <button class="btn" type="submit">Tuma</button>
+      </form>
 
-    <script src="javascript.js"></script>
-    
-</body>
-</html>
+      <div id="signupSuccess" style="display:none;margin-top:12px;padding:12px;background:#e6f9ed;border-radius:8px;color:#0b6f3a">Asante! Ombi lako limethibitishwa.</div>
+    </div>
+  </main>
 
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 ABC GLOBAL MSEWE</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('signupForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const data = {name:document.getElementById('name').value,email:document.getElementById('email').value,phone:document.getElementById('phone').value,service:document.getElementById('service').value,message:document.getElementById('message').value,timestamp:new Date().toISOString()}
+      const regs = JSON.parse(localStorage.getItem('siteSignups')||'[]'); regs.push(data); localStorage.setItem('siteSignups',JSON.stringify(regs));
+      this.reset(); document.getElementById('signupSuccess').style.display='block'; setTimeout(()=>document.getElementById('signupSuccess').style.display='none',2500);
+    });
+  </script>
 </body>
 </html>

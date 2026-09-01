@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Wasiliana - ABC GLOBAL MSEWE</title>
+  <style>
+    :root{--deep-red:#8B0000;--white:#fff;--radius:12px}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,Roboto,Arial;background:var(--white);color:#222}
+    .container{max-width:900px;margin:0 auto;padding:20px}
+    header{background:var(--deep-red);color:#fff}
+    .navbar{display:flex;align-items:center;justify-content:space-between;padding:14px}
+    nav ul{display:flex;gap:8px;list-style:none;margin:0;padding:0}
+    nav a{color:#fff;text-decoration:none;padding:8px 12px;border-radius:8px}
+    nav a.active{background:#fff;color:var(--deep-red);font-weight:600}
+    .contact-box{background:#fff;padding:20px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.06);margin-top:20px}
+    input,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid #ddd;margin-bottom:12px}
+    .btn{background:var(--deep-red);color:#fff;padding:10px 14px;border:none;border-radius:10px;cursor:pointer}
+    footer{padding:18px 0;text-align:center;color:#666;border-top:1px solid #eee;margin-top:36px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="navbar container">
+      <div class="logo"><strong>ABC GLOBAL MSEWE</strong></div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="huduma.html">Huduma</a></li>
+          <li><a href="jiandikishe.html">Jiandikishe</a></li>
+          <li><a href="matangazo.html">Matangazo</a></li>
+          <li><a href="kuhusu.html">Kuhusu</a></li>
+          <li><a href="wasilliana.html" class="active">Wasiliana</a></li>
+          <li><a href="admin.html">Admin</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="contact-box">
+      <h1>Mawasiliano</h1>
+      <p>Tuma ujumbe kwa kutumia fomu hapa chini au tuma barua pepe: abcglobalmsewe@gmail.com</p>
+      <form id="contactForm">
+        <input id="name" placeholder="Jina kamili" required>
+        <input id="email" type="email" placeholder="Barua pepe" required>
+        <textarea id="message" rows="4" placeholder="Ujumbe"></textarea>
+        <button class="btn" type="submit">Tuma Ujumbe</button>
+      </form>
+      <div id="contactSuccess" style="display:none;margin-top:12px;padding:12px;background:#e6f9ed;border-radius:8px;color:#0b6f3a">Ujumbe umetumwa. Tutakujibu hivi karibuni.</div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">&copy; 2026 ABC GLOBAL MSEWE</div>
+  </footer>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit',function(e){e.preventDefault();const data={name:document.getElementById('name').value,email:document.getElementById('email').value,message:document.getElementById('message').value,timestamp:new Date().toISOString()};const msgs=JSON.parse(localStorage.getItem('contactMessages')||'[]');msgs.push(data);localStorage.setItem('contactMessages',JSON.stringify(msgs));this.reset();document.getElementById('contactSuccess').style.display='block';setTimeout(()=>document.getElementById('contactSuccess').style.display='none',2500);});
+  </script>
+</body>
+</html>
