@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="sw">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Admin Login - ABC GLOBAL MSEWE</title>
+    <style>
+      body{font-family:Inter,system-ui,Arial;background:#fff;margin:0}
+      .container{max-width:760px;margin:40px auto;padding:20px}
+      .card{background:#fff;padding:20px;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.06)}
+      input{width:100%;padding:10px;border-radius:8px;border:1px solid #ddd;margin-bottom:12px}
+      .btn{background:#8B0000;color:#fff;padding:10px 14px;border:none;border-radius:8px;cursor:pointer}
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <h2>Admin Login</h2>
+        <form method="post" action="/admin/login">
+          <label>Jina la mtumiaji<input type="text" name="username" required></label>
+          <label>Nenosiri<input type="password" name="password" required></label>
+          <div style="margin-top:12px"><button class="btn" type="submit">Ingia</button></div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
