@@ -2,62 +2,20 @@
 <html lang="sw">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="refresh" content="0; url=/admin" />
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Admin - ABC GLOBAL MSEWE</title>
+  <title>Admin - Redirecting</title>
   <style>
-    :root{--deep-red:#8B0000;--white:#fff;--muted:#f7f7f7;--radius:12px}
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,system-ui,Roboto,Arial;background:var(--white);color:#222}
-    .container{max-width:900px;margin:0 auto;padding:20px}
-    header{background:var(--deep-red);color:#fff}
-    .navbar{display:flex;align-items:center;justify-content:space-between;padding:14px}
-    nav ul{display:flex;gap:8px;list-style:none;margin:0;padding:0}
-    nav a{color:#fff;text-decoration:none;padding:8px 12px;border-radius:8px}
-    nav a.active{background:#fff;color:var(--deep-red);font-weight:600}
-    .login-box{background:#fff;padding:20px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.06);margin-top:20px}
-    input{width:100%;padding:10px;border-radius:8px;border:1px solid #ddd;margin-bottom:12px}
-    .btn{background:var(--deep-red);color:#fff;padding:10px 14px;border:none;border-radius:10px;cursor:pointer}
-    .note{font-size:0.9rem;color:#666;margin-top:8px}
-    footer{padding:18px 0;text-align:center;color:#666;border-top:1px solid #eee;margin-top:36px}
+    body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;background:#fff;color:#222}
+    .box{max-width:560px;padding:20px;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.06);text-align:center}
+    a{color:#8B0000;font-weight:600}
   </style>
 </head>
 <body>
-  <header>
-    <div class="navbar container">
-      <div class="logo"><strong>ABC GLOBAL MSEWE</strong></div>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="huduma.html">Huduma</a></li>
-          <li><a href="jiandikishe.html">Jiandikishe</a></li>
-          <li><a href="matangazo.html">Matangazo</a></li>
-          <li><a href="kuhusu.html">Kuhusu</a></li>
-          <li><a href="wasilliana.html">Wasiliana</a></li>
-          <li><a href="admin.html" class="active">Admin</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main class="container">
-    <section class="login-box">
-      <h1>Admin Login (Frontend)</h1>
-      <p class="note">Hii ni fomu ya frontend pekee. Ili kufanya login ifanye kazi kabisa tumia Flask backend (niliongeza app.py) na set environment variables: ADMIN_USER & ADMIN_PASS.</p>
-      <form id="adminLogin">
-        <input id="username" placeholder="Jina la mtumiaji" required>
-        <input id="password" type="password" placeholder="Nenosiri" required>
-        <button class="btn" type="submit">Ingia</button>
-      </form>
-      <div id="loginNote" style="display:none;margin-top:12px;padding:12px;background:#fff4e6;border-radius:8px;color:#7a4f00">Hii ni frontend pekee. Endapo unataka admin ya kweli, nitaelekeza jinsi ya ku-deploy Flask au kuunganisha DB.</div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">&copy; 2026 ABC GLOBAL MSEWE</div>
-  </footer>
-
-  <script>
-    document.getElementById('adminLogin').addEventListener('submit',function(e){e.preventDefault();document.getElementById('loginNote').style.display='block';setTimeout(()=>document.getElementById('loginNote').style.display='none',3000);});
-  </script>
+  <div class="box">
+    <h2>Unaelekezwa kwa Admin</h2>
+    <p>Ikiwa haujaelekezwa otomatiki, tafadhali <a href="/admin">bonyeza hapa</a> kuingia kwenye ukurasa wa Admin (login).</p>
+    <p>Kwa muhtasari: Admin ya kweli ipo kwenye Flask backend (/admin). Ili fomu ya login ifanye kazi, hakikisha una-deploy app kwa server (Render/Heroku) na umeweka mazingira (SECRET_KEY, ADMIN_USER, ADMIN_PASS).</p>
+  </div>
 </body>
 </html>
